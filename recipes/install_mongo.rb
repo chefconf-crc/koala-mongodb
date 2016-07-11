@@ -23,8 +23,8 @@ service 'mongod' do
 end
 
 directory '/var/lib/mongo'  do
-  owner mongod
-  group mongod
+  owner 'mongod'
+  group 'mongod'
   mode '0755'
   action :create
 end
