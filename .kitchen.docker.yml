@@ -1,0 +1,23 @@
+driver:
+  name: docker
+
+provisioner:
+  name: chef_zero
+
+# Uncomment the following verifier to leverage Inspec instead of Busser (the
+# default verifier)
+# verifier:
+#   name: inspec
+#   format: doc
+
+platforms:
+  - name: centos-6.5
+    driver_config:
+      forward:
+      - 27017:27017 
+
+suites:
+  - name: default
+    run_list:
+      - recipe[koala-mongodb::default]
+    attributes:
