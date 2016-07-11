@@ -22,9 +22,9 @@ service 'mongod' do
   action [ :enable, :start ]
 end
 
-directory '/data/db'  do
-  owner mongodb
-  group mongodb
+directory '/var/lib/mongo'  do
+  owner mongod
+  group mongod
   mode '0755'
   action :create
 end
