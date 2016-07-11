@@ -12,3 +12,17 @@ yum_repository 'mongodb-org-3.2' do
   gpgkey 'https://www.mongodb.org/static/pgp/server-3.2.asc'
   enabled true
   action :create
+
+package 'mongodb-org'
+  action :install
+
+service 'mongod' do
+  action [ :enable, :start ]
+
+directory '/data/db'  do
+  owner mongodb
+  group mongodb
+  mode '0755'
+  action :create
+end
+
